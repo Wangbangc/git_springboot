@@ -1,0 +1,26 @@
+package org.example.gitwarmsun.mapper;
+
+<?xml version="1.0" encoding="UTF-8"?>
+<operations>
+    <operation id="createUser" description="创建新用户">
+        <sql>INSERT INTO users (username, email, phone_number, password_hash, salt, status) VALUES (?, ?, ?, ?, ?, ?)</sql>
+    </operation>
+    <operation id="updateUser" description="更新用户信息">
+        <sql>UPDATE users SET username = ?, email = ?, phone_number = ?, password_hash = ?, salt = ?, status = ? WHERE user_id = ?</sql>
+    </operation>
+    <operation id="deleteUser" description="删除用户">
+        <sql>DELETE FROM users WHERE user_id = ?</sql>
+    </operation>
+    <operation id="getUserById" description="根据ID获取用户信息">
+        <sql>SELECT * FROM users WHERE user_id = ?</sql>
+    </operation>
+    <operation id="getUserByUsername" description="根据用户名获取用户信息">
+        <sql>SELECT * FROM users WHERE username = ?</sql>
+    </operation>
+    <operation id="assignRoleToUser" description="为用户分配角色">
+        <sql>INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)</sql>
+    </operation>
+    <operation id="removeRoleFromUser" description="移除用户的角色">
+        <sql>DELETE FROM user_roles WHERE user_id = ? AND role_id = ?</sql>
+    </operation>
+</operations>
