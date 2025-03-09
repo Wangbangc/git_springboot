@@ -1,0 +1,1 @@
+ALTER TABLE repositories ADD COLUMN path VARCHAR(255) COMMENT '仓库路径';

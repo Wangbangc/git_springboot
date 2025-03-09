@@ -8,14 +8,14 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/your_database_name?useSSL=false&serverTimezone=UTC"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/git?useSSL=false&serverTimezone=UTC"/>
                 <property name="username" value="root"/>
                 <property name="password" value="13850179569"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/example/mapper/GamesMapper.xml"/>
-        <mapper resource="com/example/mapper/UsersMapper.xml"/>
+       <mapper resource="org/example/gitwarmsun/mapper/UserMapper.xml"/>
+        <mapper resource="org/example/gitwarmsun/mapper/RepositoryMapper.xml"/>
     </mappers>
 </configuration>

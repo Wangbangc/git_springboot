@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GitwarmsunApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GitwarmsunApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GitwarmsunApplication.class, args);
+    }
 
 }

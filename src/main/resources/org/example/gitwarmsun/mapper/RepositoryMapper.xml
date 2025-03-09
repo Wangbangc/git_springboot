@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.gitwarmsun.mapper.RepositoryMapper">
+    <!-- 定义结果映射 -->
+    <resultMap id="RepositoryResultMap" type="org.example.gitwarmsun.model.Repository">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="description" column="description" />
+        <result property="ownerId" column="owner_id" />
+        <result property="path" column="path" />
+    </resultMap>
+
+    <insert id="insertRepository">
+      INSERT INTO repositories (name, description, owner_id, path) VALUES (#{name}, #{description}, #{ownerId}, #{path})
+    </insert>
+
+    <delete id="deleteRepository">
+        DELETE FROM repositories WHERE id = #{repositoryId}
+    </delete>
+
+    <select id="getRepositoryDetails" resultMap="RepositoryResultMap">
+        SELECT * FROM repositories WHERE id = #{repositoryId}
+    </select>
+    <select id="listAllRepositories" resultMap="RepositoryResultMap">
+        SELECT * FROM repositories WHERE owner_id = #{userId}
+    </select>
+</mapper>

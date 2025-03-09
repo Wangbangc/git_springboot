@@ -10,8 +10,10 @@ public interface RepositoryService {
     Repository createRepository(int userId,String username, String repositoryName, String description);
     void deleteRepository(int repositoryId);
     String cloneRepository(int repositoryId);
-    void commitChanges(int repositoryId, String message, String filePaths);
+    void commitChanges(int repositoryId, String message, List<String> filePaths);
     void pullLatestCode(int repositoryId);
-    List<Repository> listAllRepositories(int userId);
+    List<Repository> listAllRepositories();
     Repository getRepositoryDetails(int repositoryId);
+    void pushToRemote(int repositoryId, String remoteUrl, String branchName);
+
 }
