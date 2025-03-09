@@ -191,7 +191,28 @@ System.out.println(repository.getPath());
 
     @Override
     public Repository getRepositoryDetails(int repositoryId) {
-        // TODO: Implement get repository details logic
-        return null;
+        // 从数据库获取仓库详情
+        Repository repository = repositoryMapper.getRepositoryDetails(repositoryId);
+        if (repository == null) {
+            throw new RuntimeException("Repository not found");
+        }
+
+        // 获取仓库路径
+        String repoPath = repository.getPath();
+        File repoDir = new File(repoPath);
+
+        // 检查路径是否存在
+        if (!repoDir.exists() || !repoDir.isDirectory()) {
+            throw new RuntimeException("为查找到该仓库");
+        }
+
+        // 获取文件列表
+        File[] files = repoDir.listFiles();
+        if (files != null) {
+            // 将文件列表存储到仓库对象中
+            repository.setFiles(files);
+        }
+
+        return repository;
     }
 }

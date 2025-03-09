@@ -1,12 +1,15 @@
 package org.example.gitwarmsun.model;
 
+import java.io.File;
+import java.security.PrivateKey;
+
 public class Repository {
     private int id;
     private String name;
     private String description;
     private int ownerId;
     private String path;
-
+    File[] files;
     // Getters and Setters
     public int getId() {
         return id;
@@ -46,5 +49,12 @@ public class Repository {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public File[] getFiles() {
+        return files;
+    }
+    public void setFiles(File[] files) {
+        this.files = files;
     }
 }
