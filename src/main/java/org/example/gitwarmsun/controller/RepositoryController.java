@@ -52,6 +52,7 @@ public class RepositoryController {
      */
     @PostMapping("/clone")
     public ResponseDTO<String> cloneRepository(@RequestParam int repositoryId) {
+        System.out.println("Cloning repository " + repositoryId);
         String result = repositoryService.cloneRepository(repositoryId);
         return new ResponseDTO<>(200, "Repository cloned successfully", result);
     }

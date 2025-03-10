@@ -31,8 +31,8 @@ public class RepositoryServiceImpl implements RepositoryService {
     @Override
     public Repository createRepository(int userId, String username, String repositoryName, String description) {
         // 1. 生成仓库路径
-        String repoPath = "C:\\Users\\74788\\Desktop\\bs\\git\\" + username + "\\" + repositoryName;
-// 1. 使用正斜杠代替反斜杠
+        String repoPath = "D:\\test\\" + username + "\\" + repositoryName;
+// 1. 使用正斜杠代替反斜杠D:\\test
         String repoPathWithForwardSlashes = repoPath.replace("\\", "/");
 
 // 2. 确保盘符大写
@@ -112,6 +112,7 @@ public class RepositoryServiceImpl implements RepositoryService {
 
     @Override
     public String cloneRepository(int repositoryId) {
+        System.out.println("Cloning repository " + repositoryId);
         // 获取仓库详情，包括路径
         Repository repository = repositoryMapper.getRepositoryDetails(repositoryId);
         if (repository == null) {
